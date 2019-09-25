@@ -1,0 +1,1444 @@
+// mixin, import, variables, parents
+@import 'variables';
+
+$top-height: 111px;
+$width-content: 1140px;
+
+%wrap-content {
+  width: $width-content;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  @include mobile {
+    width: 100%;
+  }
+}
+
+%row-elements {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+%table-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+%pin-shape {
+  position: absolute;
+  top: 5%;
+  right: 3%;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+@mixin dark-overlay {
+  &:after {
+    content: "";
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+// start scss-ing
+.container {
+  width: 100vw;
+  margin: auto;
+  background-color: orange;
+}
+
+#menu {
+  // position: relative;
+  // z-index: 1;
+  // @include dark-overlay;
+  height: 750px;
+  background: url("https://static.ladipage.net/s1440x950/uploads/images/ef320418-ea3a-4379-bfa2-284fbdb05a21.jpg") rgba(0, 0, 0, 0.4);
+  background-size: cover;
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  @include mobile {
+    width: 100%;
+    height: 130vh;
+  }
+  .container {
+    width: 100vw;
+    height: $top-height;
+    background-color: rgba(255, 255, 255, 0.44);
+    @include mobile {
+      width: 90%;
+    }
+    .header {
+      width: 100%;
+      height: $top-height;
+      display: inline-block;
+      @include mobile {
+        display: flex;
+        flex-direction: column-reverse;
+        height: 200px;
+      }
+      .logo {
+        width: 32%;
+        height: $top-height;
+        float: left;
+        @include mobile {
+          width: 45%;
+          height: 100%;
+          // float: unset;
+          margin: auto;
+        }
+        >img {
+          width: 30%;
+          height: 100%;
+          float: right;
+          @include mobile {
+            width: 100%;
+            margin-top: 40%;
+          }
+        }
+      }
+      .info {
+        width: 40%;
+        height: $top-height;
+        float: right;
+        position: relative;
+        @include mobile {
+          float: unset;
+          width: 90%;
+          margin: auto;
+        }
+        .items {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          display: inline-flex;
+          width: 90%;
+          @include mobile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 5%;
+          }
+          .phone {
+            display: inline-flex;
+            margin-right: 20%;
+            @include mobile {
+              margin: auto;
+            }
+            i {
+              align-self: center;
+              color: white;
+              margin-right: 8px;
+              font-size: 20px;
+            }
+            h1 {
+              font-size: 16px;
+              color: white;
+            }
+          }
+          .time {
+            display: inline-flex;
+            i {
+              align-self: center;
+              color: white;
+              margin-right: 8px;
+              font-size: 20px;
+            }
+            h1 {
+              font-size: 16px;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+  .texttop {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 100%;
+    height: 80%;
+    margin-top: 30px;
+    @include mobile {
+      margin-top: 48%;
+    }
+    .header-top {
+      h1 {
+        text-align: center;
+        color: white;
+        font-size: 64px;
+        @include mobile {
+          font-size: 32px;
+          margin: unset;
+        }
+      }
+    }
+    .header-sub {
+      width: 50%;
+      align-self: center;
+      @include mobile {
+        width: 90%;
+      }
+      p {
+        text-align: center;
+        color: white;
+        font-size: 16px;
+        @include mobile {
+          margin: unset;
+        }
+      }
+    }
+    .btndiv {
+      align-self: center;
+      margin-top: 15px;
+      @include mobile {
+        margin-top: 10%;
+      }
+      button {
+        width: 160px;
+        height: 35px;
+        background-color: #FF4E03;
+        border-radius: 25px;
+        border: none;
+        color: white;
+        padding: 5px;
+        text-align: center;
+        text-transform: uppercase;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: bold;
+      }
+    }
+  }
+} // end section top
+
+// #menu::after {
+//   background: rgba(0, 0, 0, 0.4);
+// }
+
+#introduce {
+  .container {
+    width: 100%;
+    height: 750px;
+    display: flex;
+    background-color: #FAFAFA;
+    @include mobile {
+      height: 180vh;
+    }
+    .wrap {
+      @extend %wrap-content;
+      @include mobile {
+        height: 200vh;
+      }
+      .head-text {
+        display: flex;
+        flex-direction: column;
+        h1 {
+          width: 60%;
+          align-self: center;
+          text-align: center;
+          font-weight: bold;
+          font-size: 26px;
+          @include mobile {
+            width: 90%;
+            font-size: 24px;
+          }
+        }
+        p {
+          width: 60%;
+          align-self: center;
+          text-align: center;
+          color: #C61665;
+          font-size: 16px;
+          margin-top: -5px;
+          @include mobile {
+            width: 90%;
+            font-size: 14px;
+          }
+        }
+      }
+      .media {
+        height: 39%;
+        @extend %row-elements;
+        margin-top: 20px;
+        @include mobile {
+          flex-direction: column;
+          height: fit-content;
+        }
+        .webinfo {
+          width: 38%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: #FFFFFF;
+          margin-left: 70px;
+          border-radius: 20px;
+          box-shadow: 0px 14px 19px rgba(156,156,156,0.24);
+          @include mobile {
+            width: 90%;
+            margin: auto;
+            margin-bottom: 20px;
+          }
+          .icon-round {
+            width: 100px;
+            height: 100px;
+            background-color: #F0F0F0;
+            border-style: solid;
+            border-radius: 50%;
+            border-width: 3px;
+            border-color: #C61665;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            text-transform: uppercase;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 10px;
+            svg {
+              width: 80px;
+              height: 80px;
+            }
+          }
+          h3 {
+            width: 70%;
+            text-align: center;
+            color: #C61665;
+            @include mobile {
+              width: 90%;
+            }
+          }
+          p {
+            text-align: center;
+            margin-top: -25px;
+            @include mobile {
+              width: 90%;
+              text-align: left;
+            }
+          }
+        }
+        .youtube-call {
+          width: 39%;
+          background-color: green;
+          margin-right: 70px;
+          @include mobile {
+            width: 90%;
+            margin: auto;
+            height: 200px;
+          }
+          iframe {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      .benefits {
+        width: 100%;
+        height: 30%;
+        margin-top: 40px;
+        .head-benefits {
+          h1 {
+            text-align: center;
+            color: #001BA6;
+            @include mobile {
+              font-size: 18px;
+              width: 80%;
+              margin: auto;
+            }
+          }
+        }
+        .details {
+          height: 60%;
+          @extend %row-elements;
+          @include mobile {
+            flex-direction: column;
+          }
+          .fbchoice {
+            width: 30%;
+            height: 100%;
+            @include mobile {
+              width: 100%;
+              margin-top: 50px;
+            }
+            h3 {
+              text-align: center;
+            }
+            ul li {
+              font-size: 10px;
+              color: #001BA6;
+              span {
+                font-size: 14px;
+                color: #7C7C7C;
+              }
+            }
+            ul li:not(:last-child) {
+              @include mobile {
+                margin-bottom: 5px;
+              }
+            }
+          }
+          .vertical-dots {
+            height: 100%;
+            border-left: #C61665;
+            border-left-style: dotted;
+            border-width: 4px;
+          }
+          .ggchoice {
+            width: 30%;
+            height: 100%;
+            @include mobile {
+              width: 100%;
+            }
+            h3 {
+              text-align: center;
+              @include mobile {
+                margin: unset;
+              }
+            }
+            ul li {
+              font-size: 10px;
+              color: #001BA6;
+              span {
+                font-size: 14px;
+                color: #7C7C7C;
+              }
+            }
+            ul li:not(:last-child) {
+              @include mobile {
+                margin-bottom: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+} // end section 2
+
+#marketing40 {
+  .container {
+    width: 100%;
+    height: 780px;
+    background-color: #F5F5F5;
+    @include mobile {
+      height: 230vh;
+    }
+    .wrap {
+      @extend %wrap-content;
+      header {
+        align-self: flex-end;
+        width: 40%;
+        margin-right: 5%;
+        @include mobile {
+          align-self: center;
+          width: 90%;
+          margin: auto;
+        }
+        h1 {
+          text-align: left;
+          font-size: 26px;
+          color: #4CAF50;
+          @include mobile {
+            text-align: center;
+          }
+        }
+      }
+      .row-image {
+        height: 50%;
+        @extend %row-elements;
+        @include mobile {
+          flex-direction: column;
+        }
+        img {
+          width: 40%;
+          height: 90%;
+          @include mobile {
+            width: 80%;
+            height: 250px;
+            margin: 0 auto;
+            margin-top: -60px;
+          }
+        }
+        .vertical-dots {
+          height: 90%;
+          border-left: #51B155;
+          border-left-style: dotted;
+          border-width: 4px;
+          @include mobile {
+            height: 0px;
+          }
+        }
+        .article-mkt40 {
+          width: 40%;
+          height: fit-content;
+          overflow: visible;
+          @include mobile {
+            width: 90%;
+            margin: 0 auto;
+            margin-top: -120px;
+          }
+          p {
+            margin-top: -10px;
+            @include mobile {
+              margin: unset;
+            }
+          }
+        }
+      }
+      .row-video {
+        height: 40%;
+        @extend %row-elements;
+        margin-top: 20px;
+        @include mobile {
+          flex-direction: column;
+        }
+        .article-services {
+          width: 40%;
+          height: fit-content;
+          overflow: visible;
+          @include mobile {
+            width: 90%;
+            margin: 0 auto;
+            margin-top: -90px;
+          }
+          p {
+            margin-top: -8px;
+            @include mobile {
+              margin: unset;
+              text-align: center;
+            }
+          }
+        }
+        .vertical-dots {
+          height: 90%;
+          border-left: #CB9B0C;
+          border-left-style: dotted;
+          border-width: 4px;
+          @include mobile {
+            height: 0px;
+          }
+        }
+        .video-intro {
+          width: 40%;
+          height: 90%;
+          @include mobile {
+            width: 90%;
+            height: 250px;
+            margin: 0 auto;
+          }
+          iframe {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      .bot-line {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 2px;
+        .line {
+          align-self: center;
+          width: 100%;
+          border-top-width: 1px;
+          border-left-width: 0px;
+          border-right-width: 0px;
+          border-bottom-width: 0px;
+          border-style: solid;
+          border-color: rgba(0,0,0,1);
+          margin-top: unset;
+        }
+      }
+    }
+  }
+} // introduce
+
+#who-use {
+  .container {
+    width: 100%;
+    height: 350px;
+    background-color: white;
+    @include mobile {
+      height: 110vh;
+    }
+    .wrap {
+      @extend %wrap-content;
+      header {
+        align-self: center;
+        h1 {
+          color: #3F51B5;
+          @include mobile {
+            text-align: center;
+          }
+        }
+        .horizontal-dots {
+          margin: 0 auto;
+          width: 80%;
+          height: 4px;
+          border-top-color: #4CAF50;
+          border-top-style: dotted;
+          border-width: 4px;
+        }
+      }
+      .situations {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 80%;
+        @include mobile {
+          flex-direction: column;
+        }
+        article {
+          width: 20%;
+          @include mobile {
+            width: 100%;
+            height: 85%;
+          }
+          .icons-area {
+            width: 100%;
+            height: 15%;
+            margin-top: 10px;
+            @include mobile {
+              height: 50px;
+              margin: unset;
+              margin-top: 5px;
+            }
+          }
+          header {
+            width: fit-content;
+            @include mobile {
+              width: 100%;
+            }
+            h3 {
+              text-align: center;
+              font-weight: normal;
+              @include mobile {
+                margin: unset;
+              }
+            }
+          }
+          p {
+            text-align: center;
+            color: #B1B1B1;
+            font-size: 14px;
+            margin-top: -10px;
+            @include mobile {
+              margin: unset;
+              width: 80%;
+              margin: 7px auto;
+            }
+          }
+        }
+      }
+      .bot-line {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 2px;
+        @include mobile {
+          display: none;
+        }
+        .line {
+          align-self: center;
+          width: 100%;
+          border-top-width: 1px;
+          border-left-width: 0px;
+          border-right-width: 0px;
+          border-bottom-width: 0px;
+          border-style: solid;
+          border-color: rgba(0,0,0,1);
+        }
+      }
+    }
+  }
+} // who use
+
+#bringtoyou {
+  .container {
+    width: 100%;
+    height: 450px;
+    background-color: #FAFAFA;
+    @include mobile {
+      height: 180vh;
+    }
+    .wrap {
+      @extend %wrap-content;
+      header {
+        width: fit-content;
+        align-self: center;
+        h1 {
+          text-align: center;
+          color: #4CAF50;
+        }
+        p {
+          font-weight: lighter;
+          @include mobile {
+            text-align: center;
+          }
+        }
+      }
+      .bring-area {
+        width: 90%;
+        height: 80%;
+        margin: 0 auto;
+        @include mobile {
+          height: 85%;
+        }
+        .bring-row {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          height: 50%;
+          @include mobile {
+            flex-direction: column;
+          }
+          .point-component {
+            display: inline-flex;
+            width: 100%;
+            height: 100%;
+            @include mobile {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            .round-area {
+              width: 27%;
+              height: 80%;
+              border-radius: 50%;
+              background-color: pink;
+              margin-right: 10px;
+              margin-left: 15%;
+              @include mobile {
+                width: 40%;
+                height: 52%;
+                margin: unset;
+              }
+              img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+              }
+            }
+            .point-content {
+              width: 50%;
+              height: fit-content;
+              @include mobile {
+                margin: auto;
+                width: 90%;
+              }
+              h1 {
+                @include mobile {
+                  margin: unset;
+                  text-align: center;
+                }
+              } 
+              p {
+                color: #180038;
+                @include mobile {
+                  margin: unset;
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+} // bring to you
+
+#img-describe {
+  .container {
+    width: 100%;
+    height: 700px;
+    background-color: white;
+    @include mobile {
+      height: 50vh;
+    }
+    .wrap {
+      @extend %wrap-content;
+      .img-1 {
+        width: 80%;
+        height: 65%;
+        margin: 0 auto;
+        background-image: url("https://static.ladipage.net/s1200x650/5b90d016a21110493d6f2fa5/56140473_2089203644496889_3696324437772075008_n-1555470336.jpg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position-y: -90px;
+        @include mobile {
+          width: 95%;
+          height: 100%;
+          background-position-y: -10px;
+        }
+      }
+      .img-2 {
+        width: 80%;
+        height: 30%;
+        margin: 20px auto;
+        background-image: url("https://static.ladipage.net/s1200x450/5b90d016a21110493d6f2fa5/untitled-a-1555471387.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        @include mobile {
+          width: 95%;
+          height: 40%;
+          margin: unset;
+          margin: 0 auto
+        }
+      }
+    }
+  }
+} // img des
+
+#whyus {
+  .container {
+    width: 100%;
+    height: 500px;
+    background-image: url("https://static.ladipage.net/s1440x750/uploads/images/2c32bfc1-89a1-48cf-a679-4caf91646516.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include mobile {
+      height: 120vh;
+    }
+    .wrap {
+      @extend %wrap-content;
+      flex-direction: row;
+      @include mobile {
+        flex-direction: column;
+      }
+      header {
+        width: 60%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        @include mobile {
+          width: 100%;
+        }
+        h1 {
+          width: 60%;
+          height: 40px;
+          text-align: center;
+          border-bottom-color: #FFA800;
+          border-bottom-style: solid;
+          border-bottom-width: 3px;
+          margin: auto;
+          @include mobile {
+            width: 85%;
+            height: 30px;
+            font-size: 18px;
+          }
+        }
+        .floating-image {
+          width: 75%;
+          height: 80%;
+          background-image: url("https://static.ladipage.net/s700x600/5b90d016a21110493d6f2fa5/sapo-omnichannel-1555474094.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-size: 80%;
+          margin: auto;
+          background-position: center;
+          @include mobile {
+            width: 80%;
+            margin: 0 auto;
+            background-size: 90%;
+          }
+        }
+      }
+      .reasons-area {
+        width: 40%;
+        height: 80%;
+        margin-top: 5%;
+        @include mobile {
+          width: 90%;
+          margin: 0 auto;
+        }
+        .reason-component {
+          display: flex;
+          justify-content: center;
+          width: 80%;
+          height: 50px;
+          background-color: #4CAF50;
+          border-radius: 10px;
+          border-width: 1px;
+          border-color: black;
+          border-style: solid;
+          margin-bottom: 20px;
+          @include mobile {
+            width: 100%;
+          }
+          p {
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+} // whyus
+
+#pricing {
+  .container {
+    width: 100%;
+    height: 1024px;
+    background-color: #FAFAFA;
+    @include mobile {
+      height: 260vh;
+    }
+    .wrap {
+      @extend %wrap-content;
+      .price-table {
+        width: 100%;
+        height: 70%;
+        @include mobile {
+          height: 56%;
+        }
+        header {
+          width: 100%;
+          height: 15%;
+          display: flex;
+          flex-direction: column;
+          @include mobile {
+            height: 12%;
+          }
+          h1 {
+            text-align: center;
+          }
+          aside {
+            text-align: center;
+            font-style: italic;
+          }
+        }
+        .tables {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 90%;
+          .yellow-table {
+            display: flex;
+            width: 60%;
+            height: 28%;
+            margin: 0 auto;
+            background-color: #FFD600;
+            margin-bottom: 20px;
+            @include mobile {
+              width: 90%;
+              height: 20%;
+              margin-bottom: 10px;
+            }
+            >div {
+              width: 95%;
+              height: 80%;
+              display: flex;
+              flex-direction: column;
+              border-width: 2px;
+              border-style: solid;
+              border-color: white;
+              margin: auto;
+              padding-top: 5px;
+              p {
+                margin: auto;
+                width: fit-content;
+                @include mobile {
+                  text-align: center;
+                }
+              }
+              aside {
+                margin: auto;
+                width: 72%;
+                font-size: 14px;
+                margin-top: 10px;
+                @include mobile {
+                  width: 100%;
+                  font-size: 13px;
+                }
+              }
+              .line {
+                margin: auto;
+                width: 80%;
+                height: 1px;
+                border-top: 1px solid white;
+              }
+            }
+          }
+          .row-table {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 32%;
+            justify-content: center;
+            margin-bottom: 20px;
+            @include mobile {
+              flex-direction: column;
+              height: 36%;
+              margin-bottom: 10px;
+            }
+            h1 {
+              text-align: center;
+              font-size: 48px;
+              font-weight: bold;
+              margin: unset;
+            }
+            h3 {
+              text-align: center;
+              margin: unset;
+              color: white;
+              margin-top: 5px;
+            }
+            p {
+              width: 80%;
+              color: white;
+              text-align: left;
+              margin-top: 10px;
+            }
+            .circle-pin {
+              @extend %pin-shape
+            }
+            .table-gray {
+              @extend %table-content;
+              width: 35%;
+              margin-right: 20px;
+              background-color: #E3E3E3;
+              p { color: #777777; }
+              h3 { color: #777777; }
+              @include mobile {
+                width: 90%;
+                margin: 0 auto;
+                margin-bottom: 10px;
+              }
+            }
+            .table-gray-bot {
+              @extend %table-content;
+              width: 35%;
+              background-color: #E3E3E3;
+              p { color: #777777; }
+              h3 { color: #777777; }
+              @include mobile {
+                width: 90%;
+                margin: 0 auto;
+              }
+            }
+            .table-green {
+              @extend %table-content;
+              width: 35%;
+              background-color: #009688;
+              @include mobile {
+                width: 90%;
+                margin: 0 auto;
+              }
+            }
+            .table-blue {
+              @extend %table-content;
+              width: 35%;
+              margin-right: 20px;
+              background-color: #0063A3;
+              @include mobile {
+                width: 90%;
+                margin: 0 auto;
+                margin-bottom: 10px;
+              }
+            }
+          }
+        }
+      }
+      .procedure {
+        header {
+          @include mobile {
+            width: 90%;
+            margin: 0 auto;
+          }
+          h2 {
+            text-align: center;
+            margin-bottom: unset;
+          }
+          aside {
+            margin: 0 auto;
+            width: 50%;
+            text-align: center;
+            font-style: italic;
+            margin-top: 10px;
+            @include mobile {
+              width: 90%;
+            }
+          }
+        }
+        .steps-row {
+          width: 90%;
+          display: flex;
+          flex-direction: row;
+          margin: auto;
+          @include mobile {
+            flex-direction: column;
+          }
+          .step {
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+            align-items: center;
+            @include mobile {
+              width: 90%;
+              margin: 0 auto;
+            }
+            h4 {
+              width: 80%;
+              text-align: center;
+              font-size: 24px;
+              margin-top: 10px;
+              margin-bottom: unset;
+            }
+            p {
+              width: 80%;
+              text-align: center;
+              font-size: 14px;
+              margin: unset;
+              margin-top: 8px;
+            }
+            svg {
+              width: 80%;
+              height: 36px;
+              justify-self: center;
+              margin-top: 8px;
+            }
+          }
+          .arrow {
+            display: flex;
+            @include mobile {
+              display: none;
+            }
+            svg {
+              align-self: center;
+              width: 80px;
+              height: 80px;
+            }
+          }
+        }
+      }
+    }
+  }
+} // pricing
+
+#contact-us {
+  .container {
+    width: 100%;
+    height: 950px;
+    background-color: white;
+    @include mobile {
+      height: 300vh;
+    }
+    .wrap {
+      @extend %wrap-content;
+      .info-area {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 40px;
+        @include mobile {
+          flex-direction: column;
+          height: 50%;
+          justify-content: unset;
+          margin: unset;
+        }
+        img {
+          width: 35%;
+          height: 90%;
+          @include mobile {
+            width: 90%;
+            height: 40%;
+            margin: 0 auto;
+          }
+        }
+        .contact-form {
+          width: 45%;
+          height: 55%;
+          @include mobile {
+            width: 90%;
+            margin: 0 auto;
+          }
+          >div {
+            width: 80%;
+            margin: auto;
+            @include mobile {
+              width: 100%;
+            }
+            p {
+              font-size: 14px;
+            }
+          }
+          form {
+            display: flex;
+            flex-direction: column;
+            >div {
+              display: inline-flex;
+              justify-content: space-between;
+              width: 80%;
+              margin: auto;
+              @include mobile {
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+              }
+              >input {
+                width: 48%;
+                height: 36px;
+                @include mobile {
+                  width: 90%;
+                  height: 30px;
+                  margin: 0 auto;
+                  margin-top: 10px;
+                }
+              }
+            }
+            >input {
+              width: 79%;
+              height: 36px;
+              margin: auto;
+              margin-top: 10px;
+            }
+            button {
+              width: 100px;
+              height: 36px;
+              border-radius: 3px;
+              border-width: 0;
+              background-color: #FE3F51;
+              color: white;
+              margin: 0 auto;
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+      .bot-line {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 2px;
+        @include mobile {
+          width: 90%;
+          margin: 0 auto;
+        }
+        .line {
+          align-self: center;
+          width: 100%;
+          border-top-width: 1px;
+          border-left-width: 0px;
+          border-right-width: 0px;
+          border-bottom-width: 0px;
+          border-style: solid;
+          border-color: rgba(0,0,0,1);
+          margin-top: -30px;
+          @include mobile {
+            margin: unset;
+          }
+        }
+      }
+      .bot-image {
+        width: 100%;
+        height: 30%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        @include mobile {
+          flex-direction: column;
+          height: 60%;
+          margin-top: 5px;
+        }
+        >img {
+          width: 40%;
+          height: 90%;
+          @include mobile {
+            width: 90%;
+            height: 19%;
+            margin: 0 auto;
+            margin-bottom: 5px;
+          }
+        }
+        .container-right {
+          width: 40%;
+          height: 90%;
+          margin-left: 10px;
+          display: flex;
+          flex-direction: column;
+          align-self: flex-end;
+          @include mobile {
+            width: 90%;
+            height: 80%;
+            align-self: unset;
+            margin: 0 auto;
+          }
+          >div {
+            width: 95%;
+            height: 48%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            @include mobile {
+              width: 100%;
+              height: 50%;
+              flex-direction: column;
+              justify-content: unset;
+              margin-bottom: unset;
+            }
+            img {
+              width: 48%;
+              height: 100%;
+              @include mobile {
+                width: 100%;
+                height: 49%;
+                margin-bottom: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+} // contact us
+
+#bot-footer {
+  .container {
+    width: 100%;
+    height: 350px;
+    background-color: #232845;
+    background-image: url("https://static.ladipage.net/s1440x600/57b167c9ca57d39c18a1c57c/footer-star-2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include mobile {
+      height: 100vh;
+    }
+    .wrap {
+      @extend %wrap-content;
+      .information {
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        justify-content: center;
+        width: 90%;
+        height: 80%;
+        @include mobile {
+          flex-direction: column;
+          height: 95%;
+          margin: 0 auto;
+          justify-content: unset;
+        }
+        .column-footer:not(:last-child) {
+          margin-right: 20px;
+          @include mobile {
+            margin: 0 auto;
+          }
+        }
+        .column-footer:first-child {
+          @include mobile {
+            height: 40%;
+          }
+        }
+        .column-footer {
+          display: flex;
+          flex-direction: column;
+          width: 30%;
+          height: 100%;
+          @include mobile {
+            width: 90%;
+            height: 30%;
+            margin: 0 auto;
+          }
+          >p {
+            font-size: 14px;
+            font-weight: bold;
+            margin: unset;
+            color: white;
+            width: 95%;
+            @include mobile {
+              text-align: center;
+              font-weight: normal;
+            }
+          }
+          h3 {
+            color: #FF9900;
+            margin: unset;
+            margin-top: 15%;
+            margin-bottom: 25px;
+            @include mobile {
+              margin: 0 auto;
+              margin-bottom: 20px;
+            }
+          }
+          >img {
+            width: 27%;
+            height: 25%;
+            margin-bottom: 5px;
+            margin-top: 5%;
+            @include mobile {
+              margin: 10px auto;
+              width: 40%;
+              height: 40%;
+            }
+          }
+          .info-row {
+            display: flex;
+            flex-direction: row;
+            i {
+              color: white;
+              margin-right: 5px;
+            }
+            p {
+              font-size: 14px;
+              font-weight: bold;
+              margin: unset;
+              color: white;
+              margin-bottom: 7px;
+              @include mobile {
+                font-weight: normal;
+              }
+            }
+          }
+        }
+      }
+      .bot-line {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 80%;
+        height: 1px;
+        .line {
+          align-self: center;
+          width: 100%;
+          border-top-width: 1px;
+          border-left-width: 0px;
+          border-right-width: 0px;
+          border-bottom-width: 0px;
+          border-style: solid;
+          border-color: rgba($color: #fff, $alpha: .4);
+        }
+      }
+      >p {
+        width: 45%;
+        color: white;
+        font-size: 14px;
+        text-align: center;
+        @include mobile {
+          width: 90%;
+          height: 5%;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+} // bot footer
